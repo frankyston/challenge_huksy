@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
+  get '/test', to: 'home#test', as: 'test'
   get '/registration/new', to: 'registrations#new', as: 'new_registration'
   post '/registration', to: 'registrations#create', as: 'registration'
   get '/session/new', to: 'sessions#new', as: 'new_session'
