@@ -1,0 +1,6 @@
+<h1>Cadastre-se</h1>
+
+<%= form_for :user, url: session_path, method: :post do |f| %>
+  Token: <%= f.text_field :token %><br />
+  <%= f.submit 'Entrar' %>
+<% end %>
