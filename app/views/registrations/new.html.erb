@@ -1,0 +1,6 @@
+<h1>Cadastre-se</h1>
+
+<%= form_for :user, url: registration_path, method: :post do |f| %>
+  E-mail: <%= f.text_field :email %><br />
+  <%= f.submit 'Cadastrar' %>
+<% end %>
