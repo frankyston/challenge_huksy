@@ -16,6 +16,8 @@ services:
     command: /bin/bash -c "rm -f /tmp/server.pid && bundle exec rails server -b 0.0.0.0 -P /tmp/server.pid"
     ports:
       - 3000:3000
+    stdin_open: true
+    tty: true
     depends_on:
       - db
     volumes:
