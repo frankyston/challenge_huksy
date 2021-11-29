@@ -8,18 +8,12 @@ class User
       def call!
         user = User.find_by(email: email)
 
-        if user
+        if user.present?
           user.regenerate_token
-          return Success result: { user: user, email: email }
+          Success result: { user: user, email: email }
+        else
+          Success result: { user: nil, email: email }
         end
-
-        Success result: { user: nil, email: email }
-      end
-
-      private
-
-      def user_attribute
-        { email: email }
       end
     end
   end
