@@ -5,7 +5,8 @@ class User
     class Flow < Micro::Case
       flow NormalizeParams,
            FindRecord,
-           CreateRecord
+           CreateRecord,
+           SendMail
     end
   end
 end

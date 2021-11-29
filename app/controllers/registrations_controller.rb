@@ -9,6 +9,7 @@ class RegistrationsController < ApplicationController
       .on_failure(:param_email_be_blank) { |error| error_register(error[:message]) }
       .on_failure(:invalid_email) { |error| error_register(error[:message]) }
       .on_failure(:invalid_user_params) { |user| error_register(user[:errors]) }
+      .on_failure(:error_send_mail) { |user| error_register(user[:errors]) }
       .on_success do |result|
         flash[:notice] = result[:message]
         redirect_to root_path

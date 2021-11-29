@@ -1,0 +1,9 @@
+<h1>Olá <%= @user.email %></h1>
+
+<p>
+  Se você está recebendo esse e-mail, você se cadastrou ou solicitou um novo token recentemente.
+</p>
+
+<p>
+  <a href="<%= new_session_url %>">Clique Aqui</a>e digite o token <strong><%= @user.token %></strong> para acessar.
+</p>
