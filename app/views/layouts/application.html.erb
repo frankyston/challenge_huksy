@@ -8,14 +8,17 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
   </head>
 
-  <body>
-    <% flash.each do |type, msg| %>
-      <div class="alert alert-info">
-        <%= msg %>
-      </div>
-    <% end %>
-    <%= yield %>
+  <body id="page-top">
+    <%= render 'layouts/shared/navigation' %>
+    <!-- Page Content-->
+    <div class="container-fluid p-0">
+      <%= render 'layouts/shared/flash' %>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,15 @@
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+  <a class="navbar-brand" href="<%= root_path %>">
+    <span class="d-block d-lg-none">Challenge Husky</span>
+    <span class="d-none d-lg-block"> <%= image_tag 'husky_logo', class: 'img-fluid mx-auto mb-2', alt: 'Logo da Husky, petala com cores rosa, velho e laranja, com o nome Husky.' %></span>
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="<%= root_path %>">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="<%= new_registration_path %>">Cadastre-se</a></li>
+      <li class="nav-item"><a class="nav-link" href="<%= new_session_path%>">Entrar</a></li>
+    </ul>
+  </div>
+</nav>
