@@ -1,6 +1,16 @@
-<h1>Cadastre-se</h1>
+<section class="resume-section">
+  <div class="resume-section-content">
+    <h1 class="mb-0">
+      Login in
+    </h1>
+    <div class="subheading mb-5">
+      Digite o token que recebeu no e-mail para
+      <a href="#">Entrar</a>
 
-<%= form_for :user, url: session_path, method: :post do |f| %>
-  Token: <%= f.text_field :token %><br />
-  <%= f.submit 'Entrar' %>
-<% end %>
+      <%= simple_form_for :user, url: session_path, method: :post do |f| %>
+        <%= f.input :token %><br />
+        <%= f.button :submit, 'Entrar', class: 'btn btn-secondary' %>
+      <% end %>
+    </div>
+  </div>
+</section>

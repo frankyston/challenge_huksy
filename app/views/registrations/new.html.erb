@@ -1,6 +1,16 @@
-<h1>Cadastre-se</h1>
+<section class="resume-section">
+  <div class="resume-section-content">
+    <h1 class="mb-0">
+      Cadastre-se
+    </h1>
+    <div class="subheading mb-5">
+      Digite seu e-mail para
+      <a href="#">cadastrar-se</a>
 
-<%= form_for :user, url: registration_path, method: :post do |f| %>
-  E-mail: <%= f.text_field :email %><br />
-  <%= f.submit 'Cadastrar' %>
-<% end %>
+      <%= simple_form_for :user, url: registration_path, method: :post do |f| %>
+        <%= f.input :email %><br />
+        <%= f.button :submit, 'Cadastrar', class: 'btn btn-secondary' %>
+      <% end %>
+    </div>
+  </div>
+</section>
