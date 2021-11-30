@@ -22,6 +22,11 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 gem 'u-case', require: 'u-case/with_activemodel_validation'
 
+gem 'bootstrap', '~> 5.1.0'
+gem 'jquery-rails'
+gem 'simple_form'
+gem 'font_awesome5_rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
