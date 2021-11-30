@@ -5,20 +5,20 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(token: user_params[:token])
-    if user
-      log_in user
-      flash[:notice] = 'Login realizado com sucesso.'
-      redirect_to root_path
-    else
-      flash[:notice] = 'Token inválido. Favor tente novamente ou digite seu e-mail no cadastre-se para receber um novo token por e-mail.'
-      render 'new'
-    end
+    User::Session::Flow
+      .call(params: params)
+      .on_failure(:invalid_token) { |error| error_session(error[:message]) }
+      .on_success do |result|
+        session[:token] = result[:user].token
+        flash[:notice] = result[:message]
+        redirect_to root_path
+      end
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:token)
+  def error_session(error)
+    flash[:notice] = error
+    render 'new'
   end
 end
