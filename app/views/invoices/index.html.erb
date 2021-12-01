@@ -17,6 +17,8 @@
               <th scope="col">From</th>
               <th scope="col">To</th>
               <th scope="col">Invoice to email</th>
+              <th scope="col">Status</th>
+              <th scope="col">Enviar invoice</th>
             </tr>
           </thead>
           <tbody>
@@ -26,6 +28,8 @@
                 <td><%= invoice.invoice_from %></td>
                 <td><%= invoice.invoice_to %></td>
                 <td><%= invoice.invoice_to_email %></td>
+                <td><%= invoice.status %></td>
+                <td><%= link_to 'Enviar e-mail da invoice', send_invoice_invoice_path(invoice), class: 'btn btn-primary btn-small' %></td>
               </tr>
             <% end %>
           </tbody>
