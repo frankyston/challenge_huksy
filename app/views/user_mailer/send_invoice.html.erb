@@ -1,0 +1,13 @@
+<h1>Olá <%= @invoice.invoice_to %></h1>
+
+<p>
+  <%= @invoice.invoice_from %> acabou de criar uma invoice para você no valor de <%= @invoice.value %>.
+</p>
+
+<p>
+  Anexamos uma versão em PDF, mas se preferir conferir online clique aqui para visualizar mais detalhes da invoice.
+</p>
+
+<p>
+  Código da invoice: <%= @invoice.identifier %>
+</p>
