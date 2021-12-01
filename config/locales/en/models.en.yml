@@ -1,0 +1,46 @@
+# encoding: UTF-8
+en:
+  activerecord:
+    models:
+      user: 'User'
+      invoice: 'Invoice'
+    attributes:
+      user:
+        email: Email
+        password: Password
+        name: Name
+      invoice:
+        invoice_from: How are you?
+        invoice_from_address: Address
+        invoice_to: Who is paying you?
+        invoice_to_email: Person or Company's email
+        invoice_to_address: Address
+        service_description: Service
+        currency: Currency
+        value: Value
+        status: Status
+        number: Invoice number
+        identifier: Identifier
+        created_at: Created at
+    enums:
+      invoice:
+        statuses:
+          draft: Draft
+          sent: Sent
+        currencies:
+          usd: USD
+          brl: BRL
+          eur: EUR
+          aud: AUD
+          cad: CAD
+          gbp: GBP
+          chf: CHF
+          aed: AED
+          clp: CLP
+          nok: NOK
+          jpy: JPY
+          ars: ARS
+          sgd: SGD
+          nzd: NZD
+          sek: SEK
+          dkk: DKK

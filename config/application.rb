@@ -10,7 +10,10 @@ module App
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**/*.{rb,yml}')]
+    config.i18n.available_locales = [:en, :'pt-BR']
+    config.i18n.default_locale = :'pt-BR'
+    config.time_zone = "Brasilia"
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
