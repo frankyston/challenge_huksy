@@ -1,0 +1,38 @@
+<section class="resume-section">
+  <div class="resume-section-content">
+    <h1 class="mb-0">
+      My
+      <span class="text-primary">Invoices</span>
+    </h1>
+    <div class="subheading mb-2">
+      List of  
+      <a href="https://frankyston.dev">invoices</a>
+    </div>
+    <div class="subheading mb-2">
+      <% if @invoices.any? %>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">From</th>
+              <th scope="col">To</th>
+              <th scope="col">Invoice to email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @invoices.each do |invoice| %>
+              <tr>
+                <th scope="row"><%= invoice.identifier %></th>
+                <td><%= invoice.invoice_from %></td>
+                <td><%= invoice.invoice_to %></td>
+                <td><%= invoice.invoice_to_email %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p>Not invoice created</p>
+      <% end %>
+    </div>
+  </div>
+</section>
