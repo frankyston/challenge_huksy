@@ -15,6 +15,11 @@ class SessionsController < ApplicationController
       end
   end
 
+  def destroy
+    session.delete(:token)
+    redirect_to root_path
+  end
+
   private
 
   def error_session(error)
