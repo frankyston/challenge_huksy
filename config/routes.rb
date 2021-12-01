@@ -11,5 +11,7 @@ Rails.application.routes.draw do
       get 'send_invoice'
     end
   end
+
+  get '/invoice/:identifier', to: 'publics#invoice', as: 'public_invoice'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

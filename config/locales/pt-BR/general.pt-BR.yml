@@ -1,0 +1,6 @@
+pt-BR:
+  invoice:
+    description: Descrição
+    value: Valor
+    notice: Aviso
+    notice_message: "Está invoice foi gerando no Challenge Husky e sua código de identificação é:"
