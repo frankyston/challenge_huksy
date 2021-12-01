@@ -5,11 +5,11 @@
     </h1>
     <div class="subheading mb-5">
       Digite seu e-mail para
-      <a href="#">cadastrar-se</a>
+      <a href="#">cadastrar-se</a> ou gerar um novo <a href="#">Token</a>
 
       <%= simple_form_for :user, url: registration_path, method: :post do |f| %>
         <%= f.input :email %><br />
-        <%= f.button :submit, 'Cadastrar', class: 'btn btn-secondary' %>
+        <%= f.button :submit, 'Enviar', class: 'btn btn-secondary' %>
       <% end %>
     </div>
   </div>
