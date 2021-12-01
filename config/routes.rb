@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   post '/registration', to: 'registrations#create', as: 'registration'
   get '/session/new', to: 'sessions#new', as: 'new_session'
   post '/session', to: 'sessions#create', as: 'session'
+  resources :invoices
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
