@@ -8,7 +8,7 @@ class Invoice < ApplicationRecord
                    aed: 7, clp: 8, nok: 9, jpy: 10, ars: 11, sgd: 12, nzd: 13,
                    sek: 14, dkk: 15 }
   validates :invoice_from, :invoice_from_address, :invoice_to, :invoice_to_email,
-            :service_description, :currency, presence: true
+            :service_description, :value, :currency, presence: true
   before_create :generate_identifier
 
   scope :draft, -> { where(status: 0) }
