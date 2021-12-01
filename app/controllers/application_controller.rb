@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user
-    flash[:notice] = 'Acesso não autorizado.'
-    redirect_to root_path unless current_user
+    unless current_user
+      flash[:notice] = 'Acesso não autorizado.'
+      redirect_to root_path
+    end
   end
 
   def current_user
