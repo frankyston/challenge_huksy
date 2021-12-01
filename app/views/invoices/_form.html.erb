@@ -1,0 +1,50 @@
+<div class="container">
+  <%= simple_form_for @invoice do |f| %>
+    <div class="row">
+      <div class="col">
+        <%= f.input :number %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.input :invoice_from %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.input :invoice_from_address %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.input :invoice_to %>
+      </div>
+      <div class="col">
+        <%= f.input :invoice_to_email, placeholder: 'contact@company.com' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.input :invoice_to_address %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.input :service_description, placeholder: 'Software development, apartment rent, ect' %>
+      </div>
+      <div class="col">
+        <%= f.input :currency, as: :select, collection: enum_options_for_select(Invoice, :currencies) %>
+      </div>
+      <div class="col">
+        <%= f.input :value %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <br>
+        <%= f.button :submit, 'Enviar Invoice', class: 'btn btn-secondary' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+      
