@@ -28,10 +28,23 @@ class InvoicesController < ApplicationController
       end
   end
 
+  def send_invoice
+    Invoice::Mail::Flow
+      .call(user: current_user, params: params)
+      .on_failure(:invalid_params) { |error| flash_and_redirect_mail(error[:message]) }
+      .on_failure(:failure_send_mail) { |error| flash_and_redirect_mail(error[:message]) }
+      .on_success { |result| flash_and_redirect_mail(result[:message]) }
+  end
+
   private
 
   def error_invoice(error, view)
     flash[:notice] = error
     render view
+  end
+
+  def flash_and_redirect_mail(error)
+    flash[:notice] = error
+    redirect_to invoices_path
   end
 end

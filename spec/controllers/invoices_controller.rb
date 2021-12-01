@@ -46,7 +46,7 @@ RSpec.describe InvoicesController, type: :controller do
 
         post :create, params: params
         expect(flash[:notice]).to be_present
-        expect(flash[:notice]).to match(/Invoice from can't be blank*/)
+        expect(flash[:notice]).to eq('Quem é você? não pode ficar em branco')
         expect(subject).to render_template(:new)
       end
     end
@@ -62,6 +62,22 @@ RSpec.describe InvoicesController, type: :controller do
         expect(Invoice.count).to eq(1)
         expect(response).to redirect_to(invoices_path)
       end
+    end
+  end
+
+  context '#send_invoice' do
+    let(:user) { create(:user) }
+    it 'should error invalid_params' do
+      get :send_invoice, params: { id: 999 }
+      expect(flash[:notice]).to be_present
+      expect(flash[:notice]).to match(/Invoice não encontrada.*/)
+    end
+
+    it 'should send invoice' do
+      invoice = create(:invoice, user: user)
+      get :send_invoice, params: { id: invoice.id }
+      expect(flash[:notice]).to be_present
+      expect(flash[:notice]).to match(/Invoice envida com sucesso.*/)
     end
   end
 end
