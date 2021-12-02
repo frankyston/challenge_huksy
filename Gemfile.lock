@@ -257,6 +257,8 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    wicked_pdf (2.1.0)
+      activesupport
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.5.1)
@@ -296,9 +298,10 @@ DEPENDENCIES
   u-case
   web-console (>= 4.1.0)
   webdrivers
+  wicked_pdf
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 3.0.3p157
 
 BUNDLED WITH
    2.2.32

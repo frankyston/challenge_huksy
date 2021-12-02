@@ -26,6 +26,7 @@ gem 'bootstrap', '~> 5.1.0'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'font_awesome5_rails'
+gem 'wicked_pdf'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
