@@ -1,4 +1,4 @@
-FROM ruby:3.0.2-slim
+FROM ruby:3.0.2-bullseye
 
 RUN apt-get update && apt-get install -y \
   curl \
@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
   curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-  apt-get update && apt-get install -y nodejs yarn
+  apt-get update && apt-get install -y nodejs wkhtmltopdf yarn
 
 RUN mkdir /app
 WORKDIR /app
@@ -20,4 +20,3 @@ COPY .env.local /app
 COPY .env.test /app
 RUN gem update bundler
 RUN bundle install --jobs 5
-
