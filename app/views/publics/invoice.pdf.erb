@@ -1,0 +1,165 @@
+<style>
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+a {
+  color: #5D6975;
+  text-decoration: underline;
+}
+
+body {
+  position: relative;
+  width: 21cm;  
+  margin: 0 auto; 
+  color: #001028;
+  background: #FFFFFF; 
+  font-family: Arial, sans-serif; 
+  font-size: 12px; 
+  font-family: Arial;
+}
+
+header {
+  padding: 10px 0;
+  margin-bottom: 30px;
+}
+
+#logo {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#logo img {
+  width: 90px;
+}
+
+h1 {
+  border-top: 1px solid  #5D6975;
+  border-bottom: 1px solid  #5D6975;
+  color: #5D6975;
+  font-size: 2.4em;
+  line-height: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  margin: 0 0 20px 0;
+  background: url(dimension.png);
+}
+
+#project {
+  float: left;
+}
+
+#project span {
+  color: #5D6975;
+  text-align: right;
+  width: 172px;
+  margin-right: 10px;
+  display: inline-block;
+  font-size: 0.8em;
+}
+
+#company {
+  float: right;
+  text-align: right;
+}
+
+#project div,
+#company div {
+  white-space: nowrap;        
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 20px;
+}
+
+table tr:nth-child(2n-1) td {
+  background: #F5F5F5;
+}
+
+table th,
+table td {
+  text-align: center;
+}
+
+table th {
+  padding: 5px 20px;
+  color: #5D6975;
+  border-bottom: 1px solid #C1CED9;
+  white-space: nowrap;        
+  font-weight: normal;
+}
+
+table .service,
+table .desc {
+  text-align: left;
+}
+
+table td{
+  padding: 20px;
+  text-align: right;
+}
+
+table th.value {
+  text-align: right;
+}
+
+
+table td.service,
+table td.desc {
+  vertical-align: top;
+}
+
+table td.unit,
+table td.qty,
+table td.total {
+  font-size: 1.2em;
+}
+
+table td.grand {
+  border-top: 1px solid #5D6975;;
+}
+
+#notices .notice {
+  color: #5D6975;
+  font-size: 1.2em;
+}
+</style>
+<header class="clearfix">
+  <div id="logo">
+    <%= image_tag wicked_pdf_asset_base64('husky_logo') %>
+  </div>
+  <h1><%= @invoice.number %></h1>
+  <div id="project">
+    <div><span><%= I18n.t('activerecord.attributes.invoice.invoice_from').upcase%></span> <%= @invoice.invoice_from %> </div>
+    <div><span><%= I18n.t('activerecord.attributes.invoice.invoice_from_address').upcase%></span> <%= @invoice.invoice_from_address %> </div>
+    <div><span><%= I18n.t('activerecord.attributes.invoice.invoice_to').upcase%></span> <%= @invoice.invoice_to %> </div>
+    <div><span><%= I18n.t('activerecord.attributes.invoice.invoice_to_email').upcase%></span> <%= @invoice.invoice_to_email %> </div>
+    <div><span><%= I18n.t('activerecord.attributes.invoice.invoice_to_address').upcase%></span> <%= @invoice.invoice_to_address %> </div>
+    <div><span><%= I18n.t('activerecord.attributes.invoice.created_at').upcase%></span> <%= l @invoice.created_at %> </div>
+  </div>
+</header>
+<main>
+  <table>
+    <thead>
+      <tr>
+        <th class="desc"><%= I18n.t('invoice.description')%></th>
+        <th class="value"><%= I18n.t('invoice.value')%></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="service"><%= @invoice.service_description %></td>
+        <td><%= number_to_currency @invoice.value %></td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="notices">
+    <div><%= I18n.t('invoice.notice').upcase%>:</div>
+    <div class="notice"><%= I18n.t('invoice.notice_message')%> <strong><%= @invoice.identifier.upcase %></strong></div>
+  </div>
+</main>

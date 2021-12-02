@@ -4,3 +4,4 @@ en:
     value: Value
     notice: Notice
     notice_message: "This invoice was generated in Challenge Husky and its identification code is:"
+    download_pdf: Download PDF

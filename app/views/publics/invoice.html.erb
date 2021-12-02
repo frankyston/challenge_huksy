@@ -30,5 +30,6 @@
   <div id="notices">
     <div><%= I18n.t('invoice.notice').upcase%>:</div>
     <div class="notice"><%= I18n.t('invoice.notice_message')%> <strong><%= @invoice.identifier.upcase %></strong></div>
+    <div><%= link_to I18n.t('invoice.download_pdf').upcase, public_invoice_path(@invoice.identifier, format: :pdf), target: '_blank'%></div>
   </div>
 </main>
