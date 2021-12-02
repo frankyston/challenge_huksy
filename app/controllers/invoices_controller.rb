@@ -5,7 +5,7 @@ class InvoicesController < ApplicationController
 
   def index
     Invoice::FetchItems
-      .call(user: current_user)
+      .call(user: current_user, params: params)
       .on_success { |result| @invoices = result[:invoices] }
   end
 
