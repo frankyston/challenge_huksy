@@ -1,11 +1,11 @@
 <h1>Olá <%= @invoice.invoice_to %></h1>
 
 <p>
-  <%= @invoice.invoice_from %> acabou de criar uma invoice para você no valor de <%= @invoice.value %>.
+  <%= @invoice.invoice_from %> acabou de criar uma invoice para você no valor de <%= number_to_currency @invoice.value %>.
 </p>
 
 <p>
-  Anexamos uma versão em PDF, mas se preferir conferir online clique aqui para visualizar mais detalhes da invoice.
+  Anexamos uma versão em PDF, mas se preferir conferir online <%= link_to 'Clique aqui', public_invoice_url(@invoice.identifier) %> para visualizar mais detalhes da invoice.
 </p>
 
 <p>

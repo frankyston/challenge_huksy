@@ -32,6 +32,7 @@ class InvoicesController < ApplicationController
     Invoice::Mail::Flow
       .call(user: current_user, params: params)
       .on_failure(:invalid_params) { |error| flash_and_redirect_mail(error[:message]) }
+      .on_failure(:error_generate_pdf) { |error| flash_and_redirect_mail(error[:message]) }
       .on_failure(:failure_send_mail) { |error| flash_and_redirect_mail(error[:message]) }
       .on_success { |result| flash_and_redirect_mail(result[:message]) }
   end
