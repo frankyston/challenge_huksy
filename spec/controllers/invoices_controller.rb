@@ -25,6 +25,37 @@ RSpec.describe InvoicesController, type: :controller do
         expect(assigns(:invoices)).to eq []
       end
     end
+
+    context 'Filters' do
+      context 'by number' do
+        it 'should one invoice' do
+          create_list(:invoice, 3, user: user)
+          params = { invoice: { number: Invoice.first.number } }
+          get :index, params: params
+          expect(assigns(:invoices).count).to eq(1)
+        end
+      end
+
+      context 'by date' do
+        before do
+          create_list(:invoice, 3, user: user)
+        end
+
+        it 'should two invoice' do
+          invoice1 = create(:invoice, created_at: 2.days.ago, user: user)
+          invoice2 = create(:invoice, created_at: 2.days.ago, user: user)
+          params = { invoice: { created_at: invoice1.created_at.to_date.to_s } }
+          get :index, params: params
+          expect(assigns(:invoices).count).to eq(2)
+        end
+
+        it 'should three invoices' do
+          params = { invoice: { created_at: Date.today.to_s } }
+          get :index, params: params
+          expect(assigns(:invoices).count).to eq(3)
+        end
+      end
+    end
   end
 
   context '#create' do
